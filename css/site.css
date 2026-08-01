@@ -1,0 +1,258 @@
+/* Black Timber Apothecary — layout and components.
+   Values come from tokens.css. A literal here that a token owns is a bug. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-2);
+  line-height: var(--lh-body);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--ink); text-underline-offset: 0.2em; }
+a:hover { color: var(--amber); }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  margin: 0 0 var(--sp-3);
+}
+h1 { font-size: var(--fs-6); }
+h2 { font-size: var(--fs-5); }
+h3 { font-size: var(--fs-4); letter-spacing: 0.05em; }
+
+p { margin: 0 0 var(--sp-3); max-width: var(--measure); }
+.lead { font-size: var(--fs-3); }
+.fine { font-size: var(--fs-1); color: var(--muted); }
+
+/* ---- Layout ---- */
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--sp-4);
+}
+
+section { padding: var(--sp-6) 0; }
+section + section { border-top: var(--rule-faint); }
+.band { background: var(--paper-deep); }
+
+.cols {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  align-items: start;
+}
+
+/* ---- Header ---- */
+
+.site-head {
+  border-bottom: var(--rule);
+  padding: var(--sp-4) 0;
+}
+.site-head .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-5);
+  align-items: center;
+  justify-content: space-between;
+}
+.brandmark { max-width: 15rem; }
+.site-nav {
+  display: flex;
+  gap: var(--sp-4);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-1);
+}
+.site-nav a { text-decoration: none; white-space: nowrap; }
+.site-nav a[aria-current="page"] { border-bottom: 2px solid var(--amber); }
+
+/* ---- Hero ---- */
+
+.hero { padding: 0; border: 0; }
+.hero img { width: 100%; max-height: 34rem; object-fit: cover; }
+.hero-copy { padding-top: var(--sp-6); }
+.eyebrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: var(--fs-1);
+  color: var(--muted);
+  margin-bottom: var(--sp-2);
+}
+
+/* ---- Divider ---- */
+
+.divider {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  margin: var(--sp-5) auto;
+  opacity: 0.8;
+}
+
+/* ---- Product bits ---- */
+
+.ingredients {
+  columns: 2;
+  column-gap: var(--sp-5);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--sp-3);
+  max-width: var(--measure);
+}
+.ingredients li {
+  padding: var(--sp-1) 0;
+  break-inside: avoid;
+}
+
+.spec {
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+  padding: var(--sp-3) 0;
+  margin: var(--sp-4) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-1);
+}
+
+/* Body face, not display: Playfair draws a double-bar $ with oldstyle figures,
+   which reads as a defect at this size. Lora gives a clean $ and lining numerals. */
+.price {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-5);
+  line-height: 1;
+}
+
+/* ---- Table ---- */
+
+.table-scroll { overflow-x: auto; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 26rem;
+  margin: var(--sp-4) 0;
+}
+th, td {
+  text-align: left;
+  padding: var(--sp-3) var(--sp-3) var(--sp-3) 0;
+  border-bottom: var(--rule-faint);
+}
+thead th {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-1);
+  border-bottom: var(--rule);
+}
+
+/* ---- Buttons + form ---- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-1);
+  padding: var(--sp-3) var(--sp-5);
+  border: var(--rule);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--amber); color: var(--ink); }
+.btn-quiet { background: transparent; color: var(--ink); }
+.btn-quiet:hover { background: var(--ink); color: var(--paper); }
+
+form { max-width: var(--measure); }
+label {
+  display: block;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-1);
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+input, textarea, select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--fs-2);
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--rule);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+}
+textarea { min-height: 8rem; resize: vertical; }
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+.form-status {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-2);
+  min-height: 1.5em;
+}
+.form-status[data-state="error"] { color: #8C2F1B; }
+
+/* ---- Footer ---- */
+
+.site-foot {
+  border-top: var(--rule);
+  margin-top: var(--sp-6);
+  padding: var(--sp-6) 0 var(--sp-7);
+  font-size: var(--fs-1);
+  color: var(--muted);
+}
+.site-foot a { color: var(--muted); }
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+.disclaimer {
+  max-width: 46rem;
+  font-size: var(--fs-1);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.safety {
+  border-left: 3px solid var(--amber);
+  padding: var(--sp-2) 0 var(--sp-2) var(--sp-3);
+  margin: var(--sp-4) 0;
+  max-width: var(--measure);
+  font-size: var(--fs-1);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 720px) {
+  section { padding: var(--sp-5) 0; }
+  .ingredients { columns: 1; }
+  .site-head .wrap { justify-content: flex-start; }
+  .hero img { max-height: 22rem; }
+}

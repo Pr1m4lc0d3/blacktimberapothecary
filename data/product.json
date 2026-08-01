@@ -1,0 +1,43 @@
+{
+  "_note": "Canonical product truth. Every price, weight and count on the site must match this file. Run tools/check.mjs to verify. See design.md.",
+
+  "pricing": {
+    "currency": "USD",
+    "case": { "packages": 8, "weightLb": 1 },
+    "retailMinPackages": 1,
+    "tiers": [
+      { "label": "1–4 lb",  "minLb": 1,  "maxLb": 4,    "perPackage": 10, "perCase": 80 },
+      { "label": "5–9 lb",  "minLb": 5,  "maxLb": 9,    "perPackage": 9,  "perCase": 72 },
+      { "label": "10+ lb",  "minLb": 10, "maxLb": null, "perPackage": 8,  "perCase": 64 }
+    ],
+    "leadTime": "4–6 weeks",
+    "retailerMarginPct": 50
+  },
+
+  "products": {
+    "buckshot": {
+      "name": "Buckshot & Gunpowder",
+      "subtitle": "Men's Wellness Blend",
+      "netWeight": "2 oz (57 g)",
+      "teabagsIncluded": 20,
+      "msrp": 20,
+      "ingredients": [
+        "Gunpowder green tea",
+        "Rooibos",
+        "Fenugreek seed",
+        "Nettle leaf",
+        "Peppermint",
+        "Meadowsweet",
+        "Ginger root",
+        "Dandelion leaf",
+        "Chamomile",
+        "Rosemary",
+        "Turmeric root",
+        "Licorice root",
+        "Orange peel"
+      ],
+      "includedSeparately": "Black peppercorns",
+      "buyUrl": null
+    }
+  }
+}
