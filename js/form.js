@@ -13,7 +13,10 @@ document.querySelectorAll('form.inquiry').forEach(form => {
     button.disabled = true;
 
     try {
-      const response = await fetch(form.action, {
+      /* FormSubmit returns JSON from its /ajax/ variant; the plain action stays on the
+         form so a no-JS submit still works. */
+      const endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: new FormData(form),

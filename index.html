@@ -137,12 +137,13 @@
     <p>Want a package, a case, or to carry it in your shop? Send a note and you'll get a reply
     directly.</p>
 
-    <form class="inquiry" action="https://api.web3forms.com/submit" method="POST">
-      <!-- PASTE THE WEB3FORMS ACCESS KEY HERE. Free at web3forms.com — it binds this
-           form to the destination inbox without ever exposing the address. -->
-      <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
-      <input type="hidden" name="subject" value="blacktimberapothecary.com — inquiry">
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+    <!-- The action carries FormSubmit's aliased endpoint, not an address — the destination
+         inbox is held on their side and never appears in this page. -->
+    <form class="inquiry" action="https://formsubmit.co/ea39a15de85dc73c211b094ae586e4f1" method="POST">
+      <input type="hidden" name="_subject" value="blacktimberapothecary.com — inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
       <label for="i-name">Your name</label>
       <input id="i-name" name="name" type="text" required autocomplete="name">
