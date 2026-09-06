@@ -141,6 +141,33 @@ section + section { border-top: var(--rule-faint); }
   line-height: 1;
 }
 
+/* ---- Herb grid ---- */
+
+.herb-grid {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  padding: 0;
+  margin: var(--sp-4) 0;
+  list-style: none;
+}
+.herb-grid figure { margin: 0; }
+.herb-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: var(--rule-faint);
+}
+.herb-grid figcaption {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-1);
+  margin-top: var(--sp-2);
+  text-align: center;
+}
+
 /* ---- Table ---- */
 
 .table-scroll { overflow-x: auto; }
