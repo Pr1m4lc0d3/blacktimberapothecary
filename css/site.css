@@ -143,10 +143,11 @@ section + section { border-top: var(--rule-faint); }
 
 /* ---- Herb grid ---- */
 
+/* 14 herbs: 7 columns × 2 rows on desktop, 2 × 7 on phones. No straggler rows. */
 .herb-grid {
   display: grid;
-  gap: var(--sp-4);
-  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--sp-3);
+  grid-template-columns: repeat(7, 1fr);
   padding: 0;
   margin: var(--sp-4) 0;
   list-style: none;
@@ -282,4 +283,5 @@ input:focus, textarea:focus, select:focus {
   .ingredients { columns: 1; }
   .site-head .wrap { justify-content: flex-start; }
   .hero img { max-height: 22rem; }
+  .herb-grid { grid-template-columns: repeat(2, 1fr); }
 }
