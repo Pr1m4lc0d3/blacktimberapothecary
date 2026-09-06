@@ -83,6 +83,8 @@ section + section { border-top: var(--rule-faint); }
 
 .hero { padding: 0; border: 0; }
 .hero img { width: 100%; max-height: 34rem; object-fit: cover; }
+/* Brand banner carries baked-in type: never crop it. */
+.hero-brand img { max-height: none; object-fit: unset; }
 .hero-copy { padding-top: var(--sp-6); }
 .eyebrow {
   font-family: var(--font-display);
