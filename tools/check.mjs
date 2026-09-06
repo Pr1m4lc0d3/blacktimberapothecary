@@ -57,7 +57,7 @@ for (const page of pages) {
 
   for (const re of bannedWords) {
     const hit = text.match(re);
-    if (hit) fail(page, `banned provenance word "${hit[0]}" — it was one specialist`);
+    if (hit) fail(page, `banned provenance word "${hit[0]}" — see design.md Provenance rules`);
   }
 
   for (const bad of [/\bLLC\b/, /\bInc\.?\b/, /®/, /™/]) {
