@@ -25,8 +25,13 @@ const allowed = new Set([
   ...pr.tiers.map(t => t.perCase),
 ]);
 
-/* House style: the provenance copy describes a single specialist. Plural framings drift. */
-const bannedWords = [/\bcouncil\b/i, /\bagents\b/i, /\bdeliberat/i];
+/* House style: no AI vocabulary (only "advanced technology" is allowed), no "science" claim,
+   no plural-agent framings. Machines are real blending equipment only. */
+const bannedWords = [
+  /\bcouncil\b/i, /\bagents\b/i, /\bdeliberat/i,
+  /\bAI\b/, /artificial intelligence/i, /\bscien/i,
+  /no machine/i, /didn't taste/i,
+];
 
 /* No contact address may appear in page source, on any page. */
 const emailRe = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
