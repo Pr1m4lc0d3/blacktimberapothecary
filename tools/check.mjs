@@ -5,7 +5,7 @@
    crawlers. data/product.json stays the single source of truth. This script is what
    keeps those two honest with each other. Exits non-zero on any failure. */
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -14,7 +14,20 @@ const data = JSON.parse(readFileSync(join(root, 'data/product.json'), 'utf8'));
 const p = data.products.buckshot;
 const pr = data.pricing;
 
-const pages = readdirSync(root).filter(f => f.endsWith('.html'));
+/* Root pages plus the Journal.
+   ⚠ This used to be readdirSync(root) alone, which meant every blog article
+   bypassed the compliance gate completely — no FDA disclaimer check, no medical
+   claim verbs, no price check. That is exactly backwards: long-form herb writing
+   is far likelier to reach for "remedy" or "treats" than a four-page brochure is.
+   Added 2026-09-07 when the Journal shipped. */
+const pages = [
+  ...readdirSync(root).filter(f => f.endsWith('.html')),
+  ...(existsSync(join(root, 'blog'))
+      ? readdirSync(join(root, 'blog'))
+          .filter(f => f.endsWith('.html'))
+          .map(f => join('blog', f))
+      : []),
+];
 const fails = [];
 const fail = (page, msg) => fails.push(`${page}: ${msg}`);
 
@@ -28,7 +41,12 @@ const allowed = new Set([
 /* House style: no AI vocabulary (only "advanced technology" is allowed), no "science" claim,
    no plural-agent framings. Machines are real blending equipment only. */
 const bannedWords = [
-  /\bcouncil\b/i, /\bagents\b/i, /\bdeliberat/i,
+  /\bcouncil\b/i, /\bagents\b/i,
+  /* ⚠ Was /\bdeliberat/i, which also banned "deliberately" and "deliberate" —
+     ordinary words that never appeared in four brochure pages and appear
+     constantly in long-form writing. The provenance risk is the noun sense
+     (a council deliberating), so match that and let the adverb through. */
+  /\bdeliberation/i, /\bdeliberative\b/i,
   /\bAI\b/, /artificial intelligence/i, /\bscien/i,
   /no machine/i, /didn't taste/i,
 ];

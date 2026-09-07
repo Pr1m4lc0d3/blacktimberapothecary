@@ -1,0 +1,35 @@
+# Black Timber Apothecary
+
+> A family operation in the Bozeman valley, Montana, blending herbal tea by hand in
+> small batches. One blend ships today. The Journal documents each herb in it: what
+> the plant is, where its uses were written down, and who wrote them.
+
+Black Timber Apothecary is not a registered entity and makes no medical claims. Its
+writing is historical and botanical, sourced to named authors where a source exists,
+and explicit about which widely repeated claims cannot be sourced at all.
+
+## Product
+
+- **Buckshot & Gunpowder** (Men's Wellness Blend) — 2 oz (57 g), 20 compostable teabags, black peppercorns included separately. $20 retail.
+- Thirteen herbs: Gunpowder green tea, Rooibos, Fenugreek seed, Nettle leaf, Peppermint, Meadowsweet, Ginger root, Dandelion leaf, Chamomile, Rosemary, Turmeric root, Licorice root, Orange peel.
+- Wholesale by the case (8 packages = 1 lb), $8 to $10 per package depending on volume. Lead time 4–6 weeks.
+- More blends in development.
+
+## Pages
+
+- [The Blend](https://blacktimberapothecary.com/): the product, its thirteen herbs, and why the peppercorns ship separately.
+- [How to Brew](https://blacktimberapothecary.com/brew.html): four methods, loose leaf and bagged, hot and iced.
+- [For Shops](https://blacktimberapothecary.com/wholesale.html): public case pricing, no gate, retailer margin stated.
+- [How It Was Made](https://blacktimberapothecary.com/how-it-was-made.html): how the recipe was developed.
+- [The Journal](https://blacktimberapothecary.com/blog/): herb by herb.
+
+## The Journal
+
+- [Gunpowder Green Tea](https://blacktimberapothecary.com/blog/gunpowder-green-tea.html): A leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source.
+
+## Notes for machine readers
+
+- Nothing here is medical advice. The product is a food.
+- Where an article states a figure, it names the source. Where a widely repeated
+  claim has no source, the article says so rather than repeating it.
+- Location: Bozeman valley, Gallatin County, Montana, United States.

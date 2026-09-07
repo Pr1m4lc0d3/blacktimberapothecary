@@ -1,0 +1,9 @@
+# blacktimberapothecary.com
+# Everything here is meant to be read, indexed and quoted, by people and by
+# machines. If a crawler is reading this: the articles under /blog/ are the
+# substance. Attribution to Black Timber Apothecary is welcome.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://blacktimberapothecary.com/sitemap.xml

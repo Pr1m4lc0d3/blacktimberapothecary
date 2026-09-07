@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Journal — Black Timber Apothecary</title>
+<meta name="description" content="Herb by herb: what each one is, where its uses were written down, and who wrote them.">
+<link rel="canonical" href="https://blacktimberapothecary.com/blog/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Journal">
+<meta property="og:description" content="Herb by herb: what each one is, where its uses were written down, and who wrote them.">
+<meta property="og:url" content="https://blacktimberapothecary.com/blog/">
+<meta property="og:image" content="https://blacktimberapothecary.com/img/og-card-twin-4.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Blog", "name": "The Journal", "description": "Herb by herb: what each one is, where its uses were written down, and who wrote them.", "url": "https://blacktimberapothecary.com/blog/", "image": "https://blacktimberapothecary.com/img/og-card-twin-4.jpg", "inLanguage": "en", "author": {"@type": "Organization", "name": "Black Timber Apothecary", "url": "https://blacktimberapothecary.com/", "logo": "https://blacktimberapothecary.com/img/logo.png", "sameAs": ["https://www.facebook.com/profile.php?id=61594016525719"], "address": {"@type": "PostalAddress", "addressLocality": "Bozeman", "addressRegion": "MT", "addressCountry": "US"}}, "publisher": {"@type": "Organization", "name": "Black Timber Apothecary", "url": "https://blacktimberapothecary.com/", "logo": "https://blacktimberapothecary.com/img/logo.png", "sameAs": ["https://www.facebook.com/profile.php?id=61594016525719"], "address": {"@type": "PostalAddress", "addressLocality": "Bozeman", "addressRegion": "MT", "addressCountry": "US"}}}</script>
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EM6XDN6MMC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EM6XDN6MMC');
+  gtag('config', 'G-F7WLK0CG8X');
+</script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="/"><img class="brandmark" src="/img/logo.png" alt="Black Timber Apothecary" width="600" height="283"></a>
+    <nav class="site-nav">
+      <a href="/">The Blend</a>
+      <a href="/brew.html">How to Brew</a>
+      <a href="/gear.html">Gear</a>
+      <a href="/wholesale.html">For Shops</a>
+      <a href="/blog/">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post"><div class="wrap">
+  <div class="journal">
+    <div class="feed">
+      <h1>The Journal</h1>
+      <p class="standfirst">One herb at a time. What it is, where its uses were written
+      down, and who wrote them.</p>
+
+      <div class="tools">
+        <label class="sr-only" for="q">Search the Journal</label>
+        <input id="q" type="search" placeholder="Search by herb or title"
+               autocomplete="off" spellcheck="false">
+        <button type="button" id="sort" data-dir="new" aria-live="polite">Newest first</button>
+      </div>
+      <p id="count" class="fine" role="status">1 articles</p>
+
+      <ul class="postlist"><li data-search="gunpowder green tea a leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source. gunpowder-green-tea" data-date="2026-09-11"><p class="eyebrow"><time datetime="2026-09-11">11 September 2026</time><span class="tag">podcast</span></p><h2><a href="/blog/gunpowder-green-tea.html">Gunpowder Green Tea</a></h2><p>A leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source.</p></li></ul>
+      <p id="empty" class="fine" hidden>Nothing matches that. Try an herb name.</p>
+    </div>
+    
+<aside class="rail">
+  <div class="card">
+    <img src="/img/label-buckshot.png" alt="Buckshot &amp; Gunpowder label" loading="lazy">
+    <h3>Buckshot &amp; Gunpowder</h3>
+    <p>The men's wellness blend these articles are about. Thirteen herbs, twenty
+       compostable teabags, black peppercorns in the box.</p>
+    <p><a class="btn" href="/">See the blend</a></p>
+  </div>
+  <div class="card quiet">
+    <h3>Follow along</h3>
+    <p>A herb a day on Facebook, drawn from these articles. Same writing, shorter.</p>
+    <p><a href="https://www.facebook.com/profile.php?id=61594016525719" rel="me">Black Timber on Facebook &rarr;</a></p>
+  </div>
+  <div class="card quiet">
+    <h3>For shops</h3>
+    <p>Case pricing is public. No gate, no verification, no email required first.</p>
+    <p><a href="/wholesale.html">Case pricing →</a></p>
+  </div>
+</aside>
+  </div>
+</div></section>
+
+<script>
+/* Search and sort run over the list already in the page. No index to fetch, no
+   framework, and it still reads fine with JS off — the articles are plain links. */
+(function () {
+  var list  = document.querySelector('.postlist');
+  if (!list) return;
+  var items = Array.prototype.slice.call(list.children);
+  var q     = document.getElementById('q');
+  var sort  = document.getElementById('sort');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+
+  function apply() {
+    var term = (q.value || '').trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function (li) {
+      var hit = !term || li.dataset.search.indexOf(term) !== -1;
+      li.hidden = !hit;
+      if (hit) shown++;
+    });
+    count.textContent = shown + (shown === 1 ? ' article' : ' articles');
+    empty.hidden = shown !== 0;
+  }
+
+  q.addEventListener('input', apply);
+  sort.addEventListener('click', function () {
+    var newest = sort.dataset.dir === 'new';
+    sort.dataset.dir = newest ? 'old' : 'new';
+    sort.textContent = newest ? 'Oldest first' : 'Newest first';
+    items.slice().sort(function (a, b) {
+      return newest ? a.dataset.date.localeCompare(b.dataset.date)
+                    : b.dataset.date.localeCompare(a.dataset.date);
+    }).forEach(function (li) { list.appendChild(li); });
+  });
+})();
+</script>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <nav class="foot-nav">
+      <a href="/">The Blend</a>
+      <a href="/brew.html">How to Brew</a>
+      <a href="/gear.html">Gear</a>
+      <a href="/wholesale.html">For Shops</a>
+      <a href="/blog/">Journal</a>
+      <a href="/how-it-was-made.html">How It Was Made</a>
+    </nav>
+    <p class="disclaimer">This product is a traditional herbal blend and a food. It has not been
+    evaluated by the FDA and is not intended to diagnose, treat, cure, or prevent any disease.
+    Consult your healthcare provider before use if you are pregnant, nursing, taking medication, or
+    have a medical condition. Keep out of reach of children. Contains licorice root — not
+    recommended for people with high blood pressure in large amounts.</p>
+    <p class="fine">Black Timber Apothecary · Made in Montana<br>
+    This site uses Google Analytics to count visits. Nothing else is collected.</p>
+  </div>
+</footer>
+
+</body>
+</html>
