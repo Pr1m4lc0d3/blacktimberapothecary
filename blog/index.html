@@ -56,8 +56,9 @@
       </div>
       <p id="count" class="fine" role="status">1 articles</p>
 
-      <ul class="postlist"><li data-search="gunpowder green tea a leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source. gunpowder-green-tea" data-date="2026-09-11"><p class="eyebrow"><time datetime="2026-09-11">11 September 2026</time><span class="tag">podcast</span></p><h2><a href="/blog/gunpowder-green-tea.html">Gunpowder Green Tea</a></h2><p>A leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source.</p></li></ul>
+      <ul class="postlist"><li class="" data-search="gunpowder green tea a leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source. gunpowder-green-tea" data-date="2026-09-11"><a class="shot" href="/blog/gunpowder-green-tea.html" tabindex="-1" aria-hidden="true"><img src="/blog/img/gunpowder-green-tea.jpg" alt="" loading="lazy"></a><div class="say"><p class="eyebrow"><time datetime="2026-09-11">11 September 2026</time><span class="tag">podcast</span></p><h2><a href="/blog/gunpowder-green-tea.html">Gunpowder Green Tea</a></h2><p>A leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source.</p></div></li></ul>
       <p id="empty" class="fine" hidden>Nothing matches that. Try an herb name.</p>
+      
     </div>
     
 <aside class="rail">
@@ -83,8 +84,9 @@
 </div></section>
 
 <script>
-/* Search and sort run over the list already in the page. No index to fetch, no
-   framework, and it still reads fine with JS off — the articles are plain links. */
+/* Search and sort act on the cards already in this page. No index to fetch and
+   no framework. With JS off the articles are still plain links, and with more
+   than one page the pager is server-rendered, so nothing depends on this. */
 (function () {
   var list  = document.querySelector('.postlist');
   if (!list) return;
@@ -93,6 +95,15 @@
   var sort  = document.getElementById('sort');
   var count = document.getElementById('count');
   var empty = document.getElementById('empty');
+
+  function restripe() {
+    var shown = 0;
+    items.forEach(function (li) {
+      if (li.hidden) return;
+      li.classList.toggle('flip', shown % 2 === 1);
+      shown++;
+    });
+  }
 
   function apply() {
     var term = (q.value || '').trim().toLowerCase();
@@ -104,6 +115,7 @@
     });
     count.textContent = shown + (shown === 1 ? ' article' : ' articles');
     empty.hidden = shown !== 0;
+    restripe();          /* keep the left/right rhythm after filtering */
   }
 
   q.addEventListener('input', apply);
@@ -115,6 +127,7 @@
       return newest ? a.dataset.date.localeCompare(b.dataset.date)
                     : b.dataset.date.localeCompare(a.dataset.date);
     }).forEach(function (li) { list.appendChild(li); });
+    restripe();
   });
 })();
 </script>

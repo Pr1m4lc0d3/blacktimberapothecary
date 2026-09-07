@@ -250,3 +250,69 @@
   letter-spacing: 0;
   color: var(--muted);
 }
+
+/* ---------------------------------------------------------------- article hero */
+.post .hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin: 0 0 var(--sp-4);
+  border: 1px solid var(--ink);
+}
+
+/* --------------------------------------------------- alternating index cards
+   Picture and words swap sides down the page. A reader scanning identical rows
+   stops seeing them; a shot that changes side keeps the eye moving. The .flip
+   class is re-applied by JS after filtering, so the rhythm survives a search. */
+.postlist li {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+}
+.postlist li.flip .shot { order: 2; }
+.postlist li.flip .say  { order: 1; }
+
+.postlist .shot { display: block; border: 1px solid var(--ink); }
+.postlist .shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.postlist .say { min-width: 0; }
+
+/* ---------------------------------------------------------------- pager */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-1);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+.pager a, .pager .here, .pager .off {
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  line-height: 1;
+}
+.pager a:hover { background: var(--ink); color: var(--paper); }
+.pager .here { background: var(--ink); color: var(--paper); }
+.pager .off { border-color: var(--rule, var(--muted)); color: var(--muted); }
+.pager .step { margin-inline: var(--sp-1); }
+
+@media (max-width: 640px) {
+  .postlist li { grid-template-columns: 1fr; }
+  .postlist li.flip .shot,
+  .postlist li.flip .say { order: initial; }   /* one column: stacking wins */
+  .postlist .shot img { aspect-ratio: 16 / 9; }
+}
