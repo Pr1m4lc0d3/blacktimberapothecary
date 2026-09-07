@@ -73,6 +73,26 @@ for (const page of pages) {
     fail(page, `email address in page source: ${m[0]}`);
   }
 
+  /* No phone number and no street address, anywhere, on any page.
+     design.md has always said contact is a form and nothing else. Since
+     2026-09-07 there is a second reason: the owner's real address and mobile
+     were written down for the Google Business Profile, which is a service-area
+     listing where Google hides the address. A stray paste from that file into a
+     page would publish both, and this repo is public.
+
+     These patterns are deliberately GENERIC. Matching the literal number would
+     mean storing the literal number in a public repository, which is the thing
+     being prevented. Shape only — the guard leaks nothing. */
+  const phoneRe = /(?:\+?1[-.\s])?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}\b/g;
+  for (const m of text.matchAll(phoneRe)) {
+    fail(page, `phone number in page source: ${m[0]} — contact is the form only`);
+  }
+
+  const streetRe = /\b\d{2,5}\s+(?:[NSEW]\.?|North|South|East|West)?\s*[A-Z][a-z]+\s+(?:Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Dr|Main|Way|Court|Ct)\b/g;
+  for (const m of text.matchAll(streetRe)) {
+    fail(page, `street address in page source: "${m[0]}" — the site publishes locality only`);
+  }
+
   for (const re of bannedWords) {
     const hit = text.match(re);
     if (hit) fail(page, `banned provenance word "${hit[0]}" — see design.md Provenance rules`);
