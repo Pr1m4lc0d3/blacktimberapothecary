@@ -36,7 +36,14 @@ const allowed = new Set([
   p.msrp,
   ...pr.tiers.map(t => t.perPackage),
   ...pr.tiers.map(t => t.perCase),
+  ...Object.values(data.products).map(x => x.msrp).filter(Boolean),
 ]);
+
+/* An unstocked product must not be described in the present tense on a live page.
+   Guards against promising a bundle we cannot ship. */
+const unstocked = Object.entries(data.products)
+  .filter(([, v]) => v.stocked === false)
+  .map(([k, v]) => ({ key: k, name: v.name, msrp: v.msrp }));
 
 /* House style: no AI vocabulary (only "advanced technology" is allowed), no "science" claim,
    no plural-agent framings. Machines are real blending equipment only. */
@@ -110,6 +117,21 @@ for (const page of pages) {
 
   if (!/not intended to diagnose, treat, cure, or prevent any disease/i.test(html)) {
     fail(page, 'missing FDA disclaimer in footer');
+  }
+}
+
+/* An unstocked product may not appear on any published page. Delete `"stocked": false`
+   from product.json the day the inventory lands, and the copy is free to ship. */
+/* Compare with entities decoded: the JSON name holds "&" where the HTML holds "&amp;",
+   so a raw includes() silently never matches. That bug shipped once; the self-test below
+   is what caught it. */
+const deEntity = s => s.replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, "'").replace(/\s+/g, ' ');
+for (const page of pages) {
+  const html = deEntity(readFileSync(join(root, page), 'utf8'));
+  for (const u of unstocked) {
+    if (html.includes(deEntity(u.name))) {
+      fail(page, `"${u.name}" is marked stocked:false in product.json — do not advertise it yet`);
+    }
   }
 }
 

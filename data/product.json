@@ -38,6 +38,19 @@
       ],
       "includedSeparately": "Black peppercorns",
       "buyUrl": null
+    },
+
+    "starterKit": {
+      "_note": "Buckshot & Gunpowder plus a reusable stainless tea ball. NOT YET STOCKED — the offer copy stays off the live site until tea balls are on the shelf. Cost basis 2026-09-07: ball $0.50 (Amazon 25-pack $12.59), hang tag ~$0.05 self-printed.",
+      "name": "Buckshot & Gunpowder Starter Kit",
+      "includes": [
+        "One 2 oz pouch of Buckshot & Gunpowder",
+        "20 compostable drawstring tea bags",
+        "Black peppercorns",
+        "One reusable stainless steel tea ball with a Black Timber tag"
+      ],
+      "msrp": 28,
+      "stocked": false
     }
   }
 }
