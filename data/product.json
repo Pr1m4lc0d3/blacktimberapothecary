@@ -50,6 +50,7 @@
         "One reusable stainless steel tea ball with a Black Timber tag"
       ],
       "msrp": 28,
+      "stocked": false,
       "ballSource": {
         "sku": "B0C2BV65B4",
         "vendor": "Sumind, via Amazon",
