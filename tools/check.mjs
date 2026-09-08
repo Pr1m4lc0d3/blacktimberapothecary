@@ -135,6 +135,27 @@ for (const page of pages) {
   }
 }
 
+/* Every SVG must actually parse. A malformed one renders as a broken-image box and
+   nothing else complains — GitHub still serves it 200 with the right content type.
+   The rule roundel shipped broken because a comment contained a double hyphen, which
+   XML forbids inside comments. Cheap structural checks, no XML library needed. */
+for (const f of readdirSync(join(root, 'img')).filter(n => n.endsWith('.svg'))) {
+  const svg = readFileSync(join(root, 'img', f), 'utf8');
+  for (const c of svg.matchAll(/<!--([\s\S]*?)-->/g)) {
+    if (c[1].includes('--')) fail(`img/${f}`, 'double hyphen inside an XML comment — breaks the whole SVG');
+  }
+  if ((svg.match(/</g) || []).length !== (svg.match(/>/g) || []).length) {
+    fail(`img/${f}`, 'unbalanced angle brackets');
+  }
+  const opens = [...svg.matchAll(/<([a-zA-Z][\w:-]*)(?=[\s/>])/g)].map(m => m[1]);
+  const closes = [...svg.matchAll(/<\/([a-zA-Z][\w:-]*)>/g)].map(m => m[1]);
+  const selfClosing = (svg.match(/\/>/g) || []).length;
+  if (opens.length - selfClosing !== closes.length) {
+    fail(`img/${f}`, `tag mismatch: ${opens.length} open, ${selfClosing} self-closing, ${closes.length} closing`);
+  }
+  if (!/^\s*<svg[\s>]/.test(svg)) fail(`img/${f}`, 'does not start with an <svg> root element');
+}
+
 /* No review reaches the site unless the owner approved it in data/reviews.json.
    Every <div class="review"> must have its text in the approved list. This is the
    moderation gate: a stray paste, or anyone editing HTML directly, fails the build.
