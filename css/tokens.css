@@ -59,6 +59,27 @@
   --page-max: 68rem;     /* outer container */
 }
 
+/* Dark theme.
+   Declared on purpose. Without this the site said nothing about colour schemes, so
+   Chrome on Android applied its own auto-darkening: it inverted the text and the
+   background but left every image alone, which turned the opaque cream logo into a
+   glaring slab with black letters sitting on it.
+
+   The palette is the label's own, inverted: ink becomes the paper, cream becomes the
+   ink. Amber is nudged brighter because it has to hold against a dark ground. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #F1EADC;
+    --paper: #17140F;
+    --paper-deep: #201C16;
+    --amber: #E8B366;
+    --muted: #A79C8A;
+
+    --rule: 1px solid var(--ink);
+    --rule-faint: 1px solid rgba(241, 234, 220, 0.24);
+  }
+}
+
 @media (max-width: 720px) {
   :root {
     --fs-6: 2.25rem;

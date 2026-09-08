@@ -3,7 +3,27 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+/* Tell the browser we handle both schemes ourselves. Without this Chrome
+   auto-darkens the page and leaves images bright. */
+html {
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light dark;
+}
+
+/* Artwork that is drawn in ink ships in two files: an ink version and a cream one.
+   An <img> cannot inherit currentColor, so the swap is done by display, not by CSS
+   colour. Anything ink-on-transparent needs a twin or it vanishes on a dark ground. */
+/* !important on both sides: component rules like `.rule { display: block }` are
+   declared later in this file and would otherwise win and show both variants. */
+.dark-only { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  .light-only { display: none !important; }
+  .dark-only { display: block !important; }
+
+  /* Photographs are lit for cream stock; on a dark page they glare. */
+  .herb-grid img,
+  .col-shot img { filter: brightness(0.88) contrast(1.03); }
+}
 
 body {
   margin: 0;
@@ -68,13 +88,17 @@ section + section { border-top: var(--rule-faint); }
   justify-content: space-between;
 }
 .brandmark { max-width: 15rem; }
+/* Six items no longer fit one phone line. Wrap, don't overflow: an unwrapped nav
+   was pushing every page to 597px on a 390px screen and side-scrolling the site. */
 .site-nav {
   display: flex;
-  gap: var(--sp-4);
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: var(--tracking-caps);
   font-size: var(--fs-1);
+  max-width: 100%;
 }
 .site-nav a { text-decoration: none; white-space: nowrap; }
 .site-nav a[aria-current="page"] { border-bottom: 2px solid var(--amber); }
@@ -161,6 +185,14 @@ section + section { border-top: var(--rule-faint); }
 .framed {
   border-top: none;
   padding-top: 0;
+}
+
+/* The printed label used as a page header. width:100% first so it can shrink
+   below its max on a narrow phone. */
+.label-header {
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
 }
 
 /* ---- Product layout ----
@@ -292,7 +324,9 @@ section + section { border-top: var(--rule-faint); }
 
 /* ---- Table ---- */
 
-.table-scroll { overflow-x: auto; }
+/* max-width pins the scroller to its column so the table scrolls inside itself
+   instead of widening the page. */
+.table-scroll { overflow-x: auto; max-width: 100%; }
 table {
   border-collapse: collapse;
   width: 100%;
@@ -405,4 +439,14 @@ input:focus, textarea:focus, select:focus {
   .site-head .wrap { justify-content: flex-start; }
   .hero img { max-height: 22rem; }
   .herb-grid { grid-template-columns: repeat(2, 1fr); }
+  .site-nav { gap: var(--sp-2) var(--sp-3); }
+  .brandmark { max-width: 11rem; }
+  .foot-nav { gap: var(--sp-2) var(--sp-3); }
+  .spec { gap: var(--sp-2) var(--sp-3); }
+  .buy-row { gap: var(--sp-2) var(--sp-3); }
 }
+
+/* Nothing may push the page wider than the screen. Images and media are the usual
+   culprits; an inline width or a min-width on a child is the other. */
+img, svg, video, iframe, table { max-width: 100%; }
+.wrap > * { min-width: 0; }
