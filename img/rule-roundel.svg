@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 44" role="presentation" aria-hidden="true">
+  <!-- Standard section rule for blacktimberapothecary.com.
+       A hairline broken by a botanical roundel. Scales to any width; the
+       roundel keeps its size because only the rules are stretched by the
+       viewBox. Ink and amber match tokens.css (--ink, --amber). -->
+  <g fill="none" stroke="#14110F" stroke-width="1">
+    <line x1="0" y1="22" x2="228" y2="22" opacity="0.45"/>
+    <line x1="332" y1="22" x2="560" y2="22" opacity="0.45"/>
+    <!-- taper marks either side of the roundel -->
+    <line x1="236" y1="22" x2="248" y2="22" opacity="0.75"/>
+    <line x1="312" y1="22" x2="324" y2="22" opacity="0.75"/>
+  </g>
+
+  <g transform="translate(280 22)">
+    <!-- outer ring -->
+    <circle r="17" fill="none" stroke="#14110F" stroke-width="1" opacity="0.55"/>
+    <circle r="13.5" fill="none" stroke="#14110F" stroke-width="0.6" opacity="0.3"/>
+
+    <!-- six petals -->
+    <g fill="#14110F" opacity="0.9">
+      <g>
+        <path d="M0 -10.5 C 2.9 -7.4, 2.9 -3.4, 0 -0.9 C -2.9 -3.4, -2.9 -7.4, 0 -10.5 Z"/>
+      </g>
+      <g transform="rotate(60)">
+        <path d="M0 -10.5 C 2.9 -7.4, 2.9 -3.4, 0 -0.9 C -2.9 -3.4, -2.9 -7.4, 0 -10.5 Z"/>
+      </g>
+      <g transform="rotate(120)">
+        <path d="M0 -10.5 C 2.9 -7.4, 2.9 -3.4, 0 -0.9 C -2.9 -3.4, -2.9 -7.4, 0 -10.5 Z"/>
+      </g>
+      <g transform="rotate(180)">
+        <path d="M0 -10.5 C 2.9 -7.4, 2.9 -3.4, 0 -0.9 C -2.9 -3.4, -2.9 -7.4, 0 -10.5 Z"/>
+      </g>
+      <g transform="rotate(240)">
+        <path d="M0 -10.5 C 2.9 -7.4, 2.9 -3.4, 0 -0.9 C -2.9 -3.4, -2.9 -7.4, 0 -10.5 Z"/>
+      </g>
+      <g transform="rotate(300)">
+        <path d="M0 -10.5 C 2.9 -7.4, 2.9 -3.4, 0 -0.9 C -2.9 -3.4, -2.9 -7.4, 0 -10.5 Z"/>
+      </g>
+    </g>
+
+    <!-- amber centre, the sun off the label -->
+    <circle r="2.6" fill="#E3A24A"/>
+  </g>
+</svg>

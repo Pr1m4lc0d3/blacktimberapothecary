@@ -1,0 +1,11 @@
+{
+  "_note": "APPROVED reviews only. Nothing here reaches the site until the owner has read it and said yes. Submissions arrive by email from the form on /tea; they are NOT stored anywhere automatically and NOTHING is auto-published. To publish one: add an entry below, then paste the same words into the reviews section of tea.html, then run tools/check.mjs. See REVIEWS.md.",
+
+  "_policy": {
+    "moderation": "owner-approved, manual, pre-publication",
+    "autoPublish": false,
+    "storesSubmissionsOnSite": false
+  },
+
+  "approved": []
+}

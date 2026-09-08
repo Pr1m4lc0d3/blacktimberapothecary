@@ -135,6 +135,33 @@ for (const page of pages) {
   }
 }
 
+/* No review reaches the site unless the owner approved it in data/reviews.json.
+   Every <div class="review"> must have its text in the approved list. This is the
+   moderation gate: a stray paste, or anyone editing HTML directly, fails the build.
+   See REVIEWS.md. */
+const reviewsPath = join(root, 'data/reviews.json');
+if (existsSync(reviewsPath)) {
+  const approved = (JSON.parse(readFileSync(reviewsPath, 'utf8')).approved || [])
+    .map(r => (r.text || '').replace(/\s+/g, ' ').trim().toLowerCase());
+
+  for (const page of pages) {
+    const html = readFileSync(join(root, page), 'utf8');
+    for (const m of html.matchAll(/<div class="review">([\s\S]*?)<\/div>/g)) {
+      const body = m[1]
+        .replace(/<p class="review-meta">[\s\S]*?<\/p>/g, '')  // the byline is not the review
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+      if (!body) continue;
+      if (!approved.some(a => a === body || a.includes(body) || body.includes(a))) {
+        fail(page, `published review is not in data/reviews.json approved list: "${body.slice(0, 60)}…"`);
+      }
+    }
+  }
+}
+
 /* Wholesale page must print every tier exactly as the data file has it. */
 const wholesale = readFileSync(join(root, 'wholesale.html'), 'utf8');
 for (const t of pr.tiers) {

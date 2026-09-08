@@ -143,6 +143,125 @@ section + section { border-top: var(--rule-faint); }
   line-height: 1;
 }
 
+/* ---- Section rule ----
+   The standard divider between topics anywhere on the site: a hairline broken
+   by a botanical roundel. Use <img class="rule" src="/img/rule-roundel.svg" alt="">
+   instead of a bare <hr> or a plain border. */
+
+.rule {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  margin: var(--sp-6) auto;
+  opacity: 0.85;
+}
+.rule-tight { margin: var(--sp-5) auto; }
+
+/* A section framed top and bottom by the rule. */
+.framed {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* ---- Product layout ----
+   Text left, image right. Beneath: buy column left, contents column right,
+   so the CTA sits under the prose and the details sit under the photograph. */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--sp-5) var(--sp-6);
+  align-items: start;
+}
+.product-grid > .col-copy { grid-column: 1; }
+.product-grid > .col-shot { grid-column: 2; grid-row: 1 / span 2; }
+.product-grid > .col-buy  { grid-column: 1; }
+
+.col-shot img {
+  width: 100%;
+  border: var(--rule-faint);
+}
+.shot-caption {
+  font-size: var(--fs-1);
+  color: var(--muted);
+  margin-top: var(--sp-2);
+  text-align: center;
+}
+
+/* The contents panel that sits under the photograph. */
+.panel {
+  border: var(--rule-faint);
+  padding: var(--sp-4);
+  margin-top: var(--sp-4);
+}
+.panel h3 {
+  font-size: var(--fs-1);
+  letter-spacing: var(--tracking-caps);
+  margin-bottom: var(--sp-3);
+}
+.contents {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contents li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-2) 0;
+  border-bottom: var(--rule-faint);
+}
+.contents li:last-child { border-bottom: 0; }
+.contents .qty {
+  font-family: var(--font-display);
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+/* Buy block */
+.buy-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-3) var(--sp-4);
+  margin: var(--sp-3) 0;
+}
+.pay-note {
+  font-size: var(--fs-1);
+  color: var(--muted);
+  margin-top: var(--sp-3);
+}
+
+/* ---- Reviews ---- */
+
+.review {
+  border-top: var(--rule-faint);
+  padding: var(--sp-4) 0;
+  max-width: var(--measure);
+}
+.review:first-of-type { border-top: 0; }
+.review-meta {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-1);
+  color: var(--muted);
+  margin-top: var(--sp-2);
+}
+.review-empty {
+  color: var(--muted);
+  font-style: italic;
+  max-width: var(--measure);
+}
+
+@media (max-width: 720px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .product-grid > .col-copy,
+  .product-grid > .col-shot,
+  .product-grid > .col-buy { grid-column: 1; grid-row: auto; }
+  .rule { margin: var(--sp-5) auto; }
+}
+
 /* ---- Herb grid ---- */
 
 /* 14 herbs: 7 columns × 2 rows on desktop, 2 × 7 on phones. No straggler rows. */
