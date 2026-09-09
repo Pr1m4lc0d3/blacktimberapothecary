@@ -167,6 +167,28 @@ section + section { border-top: var(--rule-faint); }
   line-height: 1;
 }
 
+/* ---- Gear grid ----
+   Four products, one row. The generic .cols is auto-fit with a 17rem minimum,
+   which cannot fit four across a 68rem page, so it broke to 3 + 1 stranded. */
+
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+}
+.gear-grid img {
+  width: 100%;
+  border: var(--rule-faint);
+  margin-bottom: var(--sp-3);
+}
+.gear-grid h3 { font-size: var(--fs-2); }
+.gear-grid p { font-size: var(--fs-1); }
+
+@media (max-width: 900px) {
+  .gear-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ---- Section rule ----
    The standard divider between topics anywhere on the site: a hairline broken
    by a botanical roundel. Use <img class="rule" src="/img/rule-roundel.svg" alt="">
