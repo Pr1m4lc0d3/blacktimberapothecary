@@ -187,14 +187,6 @@ section + section { border-top: var(--rule-faint); }
   padding-top: 0;
 }
 
-/* The printed label used as a page header. width:100% first so it can shrink
-   below its max on a narrow phone. */
-.label-header {
-  width: 100%;
-  max-width: 30rem;
-  margin: 0 auto;
-}
-
 /* ---- Product layout ----
    Text left, image right. Beneath: buy column left, contents column right,
    so the CTA sits under the prose and the details sit under the photograph. */
