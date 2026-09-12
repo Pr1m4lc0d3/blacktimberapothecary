@@ -1,19 +1,38 @@
 {
   "_note": "Canonical product truth. Every price, weight and count on the site must match this file. Run tools/check.mjs to verify. See design.md.",
-
   "pricing": {
     "currency": "USD",
-    "case": { "packages": 8, "weightLb": 1 },
+    "case": {
+      "packages": 8,
+      "weightLb": 1
+    },
     "retailMinPackages": 1,
     "tiers": [
-      { "label": "1–4 lb",  "minLb": 1,  "maxLb": 4,    "perPackage": 10, "perCase": 80 },
-      { "label": "5–9 lb",  "minLb": 5,  "maxLb": 9,    "perPackage": 9,  "perCase": 72 },
-      { "label": "10+ lb",  "minLb": 10, "maxLb": null, "perPackage": 8,  "perCase": 64 }
+      {
+        "label": "1–4 lb",
+        "minLb": 1,
+        "maxLb": 4,
+        "perPackage": 10,
+        "perCase": 80
+      },
+      {
+        "label": "5–9 lb",
+        "minLb": 5,
+        "maxLb": 9,
+        "perPackage": 9,
+        "perCase": 72
+      },
+      {
+        "label": "10+ lb",
+        "minLb": 10,
+        "maxLb": null,
+        "perPackage": 8,
+        "perCase": 64
+      }
     ],
     "leadTime": "4–6 weeks",
     "retailerMarginPct": 50
   },
-
   "products": {
     "buckshot": {
       "name": "Buckshot & Gunpowder",
@@ -39,9 +58,8 @@
       "includedSeparately": "Black peppercorns",
       "buyUrl": null
     },
-
     "starterKit": {
-      "_note": "Buckshot & Gunpowder plus a reusable stainless tea ball. NOT STOCKED — balls not yet ordered. Cost basis 2026-09-07: ball $0.42 (Tideme 100-pack $41.98, ASIN B0DK8F1V85), hang tag ~$0.05, base unit $2.21 — all-in $2.68 against $25. Priced as a $5 upsell rather than $8: the balls are heart-shaped, which reads soft against this brand, so a smaller ask converts better. Fulfilment steps in FULFILMENT.md.",
+      "_note": "Buckshot & Gunpowder plus a reusable stainless tea ball. NOT STOCKED — balls not yet ordered. Cost basis 2026-09-07: ball $0.42 (Tideme 100-pack $41.98, ASIN B0DK8F1V85), hang tag ~$0.05, base unit $2.21 — all-in $2.68 against $25. Priced as a $5 upsell rather than $8: the balls are heart-shaped, which reads soft against this brand, so a smaller ask converts better. Fulfilment steps in FULFILMENT.md. 2026-09-12: the storefront STOPPED rendering a \"Sold out\" badge for this variant, so it showed as an ordinary selectable option with Add to Cart. The variant is now NAMED \"Pouch + tea ball (out of stock)\" so the state does not depend on Fourthwall rendering. To sell it: raise stock AND remove those words from the name.",
       "name": "Buckshot & Gunpowder Starter Kit",
       "includes": [
         "One 2 oz pouch of Buckshot & Gunpowder",
@@ -59,7 +77,10 @@
         "perUnit": 0.42,
         "material": "304 stainless steel",
         "shape": "heart, extended chain hook",
-        "_warning": "Order the 100-pack VARIANT. The default 50-pack is $18.98 ($0.45/ea) and showed only 12 in stock on 2026-09-07. Thin seller; check stock before relying on it. Backup: Sumind B0C2BV65B4, 100 for $46.99 ($0.47/ea)."
+        "_warning": "Order the 100-pack VARIANT. The default 50-pack is $18.98 ($0.45/ea) and showed only 12 in stock on 2026-09-07. Thin seller; check stock before relying on it. Backup: Sumind B0C2BV65B4, 100 for $46.99 ($0.47/ea). Prices move: re-check both links before ordering. Full sourcing record in FULFILMENT.md section 4.",
+        "url": "https://www.amazon.com/dp/B0DK8F1V85",
+        "backupUrl": "https://www.amazon.com/dp/B0C2BV65B4",
+        "pricesAsOf": "2026-09-07"
       }
     }
   }

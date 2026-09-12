@@ -91,7 +91,25 @@ for (const page of pages) {
      mean storing the literal number in a public repository, which is the thing
      being prevented. Shape only — the guard leaks nothing. */
   const phoneRe = /(?:\+?1[-.\s])?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}\b/g;
-  for (const m of text.matchAll(phoneRe)) {
+  /* ⚠ Scan with DOIs removed first. A DOI is digits joined by hyphens and it
+     WILL match a phone shape: 10.1007/s00334-013-0419-x contains "334-013-0419",
+     which failed the meadowsweet article on 2026-09-12. The Journal cites papers
+     by DOI, so this recurs on every well-sourced herb article.
+
+     🚨 NO WHITESPACE IN THIS CLASS, and that is the whole safety property. The
+     first version allowed \s and matched 3–60 chars, so on
+     "10.1007/s00334-013-0419-x then call 406-312-9743" it swallowed the real
+     phone number along with the DOI and the guard reported the page clean. A
+     fixture caught it before it shipped. A DOI never contains a space, so this
+     cannot span from a citation into neighbouring prose.
+
+     ⚠ The other half of that failure was a link LABEL written as
+     "doi.org — s00334 013 0419 x", a DOI with its punctuation flattened. That
+     is malformed content, not a checker problem, and it was fixed in
+     blog/meadowsweet.md rather than exempted here. */
+  const doiRe = /10\.\d{4,9}\/[-._;()\/:A-Za-z0-9]{3,80}/g;
+  const scanned = text.replace(doiRe, ' [doi] ');
+  for (const m of scanned.matchAll(phoneRe)) {
     fail(page, `phone number in page source: ${m[0]} — contact is the form only`);
   }
 
