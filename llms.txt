@@ -26,8 +26,11 @@ and explicit about which widely repeated claims cannot be sourced at all.
 ## The Journal
 
 - [Fenugreek Seed](https://blacktimberapothecary.com/blog/fenugreek-seed.html): A seed that smells of maple syrup, a name that means Greek hay, and a citation everybody repeats from a book that does not contain it.
+- [Ginger Root](https://blacktimberapothecary.com/blog/ginger-root.html): There is no wild ginger anywhere on earth. Every plant alive is a cutting of a human decision, and the species has no ancestor anyone can name.
 - [Gunpowder Green Tea](https://blacktimberapothecary.com/blog/gunpowder-green-tea.html): A leaf rolled into pellets, a name that arrived four hundred years late, and the most repeated origin story in tea, which nobody has ever been able to source.
+- [Meadowsweet](https://blacktimberapothecary.com/blog/meadowsweet.html): Meadowsweet gave aspirin its name but not its first isolation, and Culpeper catalogued the plant while missing the one thing it is now sold for.
 - [Nettle Leaf](https://blacktimberapothecary.com/blog/nettle-leaf.html): A fairy tale about shirts woven from nettles, a Scottish proverb about housewifery, and a wartime story that everyone repeats and the source denies.
+- [Peppermint](https://blacktimberapothecary.com/blog/peppermint.html): A peer-reviewed paper disproved the claim that peppermint was found in Egyptian pyramids. Two years later it is still printed on tea boxes.
 - [Rooibos](https://blacktimberapothecary.com/blog/rooibos.html): A pea-family shrub from one mountain range, a red that is manufactured rather than grown, and the ancient tradition behind it that nobody has ever been able to find in the record.
 
 ## Notes for machine readers
