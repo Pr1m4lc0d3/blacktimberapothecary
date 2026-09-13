@@ -26,6 +26,11 @@ document.querySelectorAll('form.inquiry').forEach(form => {
 
       form.reset();
       status.textContent = 'Sent. You’ll get a reply directly.';
+      /* The AJAX path never navigates, so there is no thanks.html pageview to count.
+         Without this the conversion is invisible and only the no-JS submits register. */
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', { form: 'wholesale_inquiry' });
+      }
     } catch {
       status.setAttribute('data-state', 'error');
       status.textContent = 'That didn’t send. Please try again in a moment.';
