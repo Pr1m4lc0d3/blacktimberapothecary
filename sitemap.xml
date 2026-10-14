@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/blends.html</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -73,50 +73,86 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://blacktimberapothecary.com/blog/chamomile-flowers.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blacktimberapothecary.com/blog/dandelion-leaf.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://blacktimberapothecary.com/blog/fenugreek-seed.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/blog/ginger-root.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/blog/gunpowder-green-tea.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/blog/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://blacktimberapothecary.com/blog/licorice-root.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://blacktimberapothecary.com/blog/meadowsweet.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/blog/nettle-leaf.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blacktimberapothecary.com/blog/page-2.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/blog/peppermint.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://blacktimberapothecary.com/blog/rooibos.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blacktimberapothecary.com/blog/rosemary-leaf.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blacktimberapothecary.com/blog/turmeric-root.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
